@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="display-flex header">HEADER</div>
+        <div class="display-flex side-bar">SIDE BAR</div>
+        <div class="display-flex nav">NAV</div>
+        <div class="display-flex article">
+            <div>ARTICLE</div>
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae est expedita architecto quam animi, praesentium sed eligendi nobis. Corrupti pariatur doloremque possimus itaque distinctio sapiente facilis rem enim voluptas dolores.
+            Libero perferendis veritatis similique sed earum quaerat consequatur ullam voluptatibus, facere porro nesciunt excepturi iusto quos velit distinctio minima debitis, quia soluta fugit ipsam tempora, nam veniam? Sint, aperiam qui? </p>
+            
+            <p>Consectetur aperiam provident nam obcaecati accusantium, inventore soluta laboriosam velit consequuntur nisi sapiente eum neque, fugiat blanditiis ullam minima, optio dolorum. Ex impedit suscipit nulla voluptate. Atque quam debitis illo?</p>
+
+            <p>Quam eligendi accusamus repellat quasi voluptatem reiciendis! Modi accusamus maiores numquam, similique provident animi minima reprehenderit, minus quisquam facere distinctio veniam porro suscipit sit quis neque iure asperiores! Quidem, minus?
+            Qui, nam animi provident expedita doloribus saepe rerum reiciendis non perspiciatis minus cupiditate explicabo voluptas temporibus molestias sunt magnam fugiat omnis accusamus ratione dolorem soluta beatae. Blanditiis possimus atque vel.</p>
+
+        </div>
+        <div class="display-flex footer">FOOTER</div>
+    </div>
+</body>
+<style>
+    :root {
+        --row-num: 5;
+        --col-num: 3;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    body, html {
+        padding: 0;
+        height: 100%;
+        margin: 0;
+        color: white;
+        font-weight: bold;
+        font-size: large;
+        font-family: sans-serif;
+    }
+    body {
+        padding: 10px;
+    }   
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        grid-template-areas: 
+                            "h h h"
+                            "s n n"
+                            "s a a"
+                            "f f f";
+    }
+
+    .display-flex {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+        border-radius: 10px;
+    }
+
+    .header {
+        grid-area: h;
+        background-color: green;
+    }
+    .side-bar {
+        grid-area: s;
+        background-color: darkblue;
+    }
+    .nav {
+        background-color: purple;
+        grid-area: n;
+    }
+    .article {
+        background-color: magenta;
+        grid-area: a;
+        flex-direction: column;
+    }
+    .article > div {
+        align-self: center;
+    }
+    .footer {
+        background-color: gray;
+        grid-area: f;
+    }
+    p {
+        font-size: 18px;
+        font-weight: lighter;
+        text-indent: 2em;
+        text-align: justify;
+        margin: 10px 50px;
+    }
+</style>
+</html>
