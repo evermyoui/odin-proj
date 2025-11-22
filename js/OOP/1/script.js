@@ -1,20 +1,26 @@
-class Book {
-    constructor(title, author, pages, isRead){
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.isRead = isRead;
-        this.info = function(){
-            let information = `${this.title} by ${this.author}, ${this.pages} pages`;
-            if (this.isRead){
-                return `${information}, read it.`
-            }else {
-                return `${information}, not read yet.`
-            }
-        }
-    }
+const myLibrary = [];
+
+function Book(title, author, pages, isRead){
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.isRead = isRead;
+  this.id = crypto.randomUUID();
+}
+function info(book){
+  let information = `${book.title} by ${book.author}, ${book.pages} pages`;
+  if (book.isRead){
+      return `${information}, read it.`
+  }else {
+      return `${information}, not read yet.`
+  }
+}
+function addtoLibrary(book){
+  myLibrary.push(book);
 }
 
-const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", "295", false);
 
-const myLibrary = [];
+
+const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", "295", false);
+// console.log(info(theHobbit));
+// console.log(theHobbit);
