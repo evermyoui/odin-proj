@@ -8,19 +8,33 @@
 </head>
 <body>
     <div class="container">
-        <h1>My Library</h1>
-        <div class="books">
-            <div class="card">
-                <h2>The Hobbit</h2>
-                <span class="author">J.R.R Tolkien</span>
-                <span class="pages">295 pages</span>
+        <div>
+            <h1>My Library</h1>
+        </div>
+        <div>
+            <div class="books">
+                <div class="card">
+                    <h2>The Hobbit</h2>
+                    <span class="author">J.R.R Tolkien</span>
+                    <span class="pages">295 pages</span>
+                </div>
+                <div class="card">
+                    <h2>The Hobbit</h2>
+                    <span class="author">J.R.R Tolkien</span>
+                    <span class="pages">295 pages</span>
+                </div>
             </div>
-            <div class="card">
-                <h2>The Hobbit</h2>
-                <span class="author">J.R.R Tolkien</span>
-                <span class="pages">295 pages</span>
+
+            <div class="btn-div">
+                <button class="new-btn">New Book</button>
             </div>
         </div>
+        
+        <dialog id="book-dialog">
+            <input type="text" name="title" id="book-title">
+            <input type="text" name="author" id="book-author">
+            <input type="number" name="pages" id="book-pages">
+        </dialog>
     </div>
 
     <script src="script.js"></script>
