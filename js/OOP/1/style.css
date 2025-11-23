@@ -24,7 +24,6 @@ body {
 
 .container > div:nth-of-type(2){
     background-color: #435663;
-    border-radius: 10px 10px 0px 0px;
 }
 
 .books {
@@ -78,4 +77,25 @@ body {
     width: 200px;
     color: #313647;
     background-color: #FFF8D4;
+}
+
+#book-dialog {
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+}
+::backdrop{
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#book-dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 20px;
+}
+
+form > div {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }

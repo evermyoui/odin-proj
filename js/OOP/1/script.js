@@ -25,3 +25,7 @@ const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", "295", false);
 
 
 const newBtn = document.querySelector(".new-btn");
+const bookDialog = document.querySelector("#book-dialog");
+newBtn.addEventListener("click", ()=> {
+  bookDialog.showModal();
+})
