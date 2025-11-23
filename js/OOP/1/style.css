@@ -43,7 +43,16 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 2px 4px 10px 10px rgba(0, 0, 0, 0.1);
+
 }
+
+.yes {
+    border: 1px solid green;
+}
+.no {
+    border: 1px solid red;
+}
+
 .card h2 {
     margin-bottom: 70px;
 }
@@ -60,6 +69,8 @@ body {
 .btn-div{
     display: flex;
     justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
 }
 
 .new-btn {
@@ -97,5 +108,63 @@ body {
 
 form > div {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.radio-class{
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    border: 1px solid #435663;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.dialog-btn {
+    border: none;
+    background-color: #435663;
+    border-radius: 5px;
+    color: #FFF8D4;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: 50%;
+    transition: all 0.3s;
+}
+.dialog-btn:hover {
+    width: 70%;
+    border: 1px solid #313647;
+    background-color: white;
+    color: #313647;
+}
+.edit-div {
+    display: flex;
+    gap: 15px;
+}
+
+.edit-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+    color: #435663;
+    background-color: white;
+    transition: all 0.5s;
+}
+.edit-btn:hover {
+    cursor: pointer;
+    scale: 1.1;
+    width: 180px;
+    color: #313647;
+    background-color: #FFF8D4;
+}
+
+.delete:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+.status {
+    color: green;
 }
