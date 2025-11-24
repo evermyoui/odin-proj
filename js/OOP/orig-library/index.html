@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>My Library</h1>
+        </div>
+        <div>
+            <div class="books">
+            </div>
+
+            <div class="btn-div">
+                <button class="new-btn">New Book</button>
+            </div>
+        </div>
+            <dialog id="book-dialog">
+                    <form method="dialog">
+                        <h2>Add New Book</h2>
+                            <div>
+                                <label for="book-title">Title</label>
+                                <input type="text" name="title" id="book-title" required>
+                            </div>
+                            <div>
+                                <label for="book-author">Author</label>
+                                <input type="text" name="author" id="book-author" required>
+                            </div>
+                            <div>
+                                <label for="book-pages">Pages</label>
+                                <input type="number" name="pages" id="book-pages" required>
+                            </div>
+                            <div>
+                                <label>Read Already?</label>
+                                <div class="radio-class">
+                                    <input type="radio" name="read" value="true" id="book-radio-yes" required>
+                                    <label for="book-radio-yes">Yes</label>
+                                    <input type="radio" name="read" value="false" id="book-radio-no"required> 
+                                    <label for="book-radio-no">No</label>
+                                </div>
+                            </div>
+                            <div class="btn-div">
+                                <button class="dialog-btn" id="cancel-btn">Cancel</button>
+                                <button class="dialog-btn" id="add-btn">Add New Book</button>
+                            </div>                 
+                    </form>
+            </dialog>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
