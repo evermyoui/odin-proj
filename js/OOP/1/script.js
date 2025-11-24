@@ -19,40 +19,28 @@ function Book(title, author, pages, status){
   this.status = status;
   this.id = crypto.randomUUID();
 }
+Book.prototype.toggleStatus = function (){
+  this.status = !this.status;
+}
 
 newBtn.addEventListener("click", ()=> bookDialog.showModal());
 cancelBtn.addEventListener("click", ()=> bookDialog.close());
 
 addBtn.addEventListener("click", submitBook);
 
-function changeStatus(card, book){
+function setText(card, book){
+  const span = card.querySelector(".status");
+
   if (book.status){
-    card.classList.remove("yes");
-    card.classList.add("no");
-    book.status = false;
-    card.innerHTML = `
-                    <h2>${book.title}</h2>
-                    <span class="author">${book.author}</span>
-                    <span class="pages">${book.pages} pages</span>
-                    <div class="edit-div">
-                      <button class="edit-btn change">Change Status</button>
-                      <button class="edit-btn delete">Delete</button>
-                    </div>
-  `;
-  }else {
+    span.textContent = "";
     card.classList.remove("no");
     card.classList.add("yes");
-    book.status = true;
-    card.innerHTML = `
-                    <h2>${book.title}</h2>
-                    <span class="author">${book.author}</span>
-                    <span class="pages">${book.pages} pages</span>
-                    <span class= "status">I have read it!</span>
-                    <div class="edit-div">
-                      <button class="edit-btn change">Change Status</button>
-                      <button class="edit-btn delete">Delete</button>
-                    </div>
-  `;
+    span.textContent = "I have read it.";
+  }else {
+    span.textContent = "";
+    card.classList.remove("yes");
+    card.classList.add("no");
+    span.textContent = "I haven't read it"
   }
 }
 
@@ -75,32 +63,19 @@ function addToLibrary(book){
 }
 function createCard(book){
   const card = document.createElement("div");
+  card.dataset.id = book.id;
   card.classList.add("card");
-
-  if (book.status === true){
-    card.classList.add("yes");
-    card.innerHTML = `
-                    <h2>${book.title}</h2>
-                    <span class="author">${book.author}</span>
-                    <span class="pages">${book.pages} pages</span>
-                    <span class= "status">I have read it!</span>
-                    <div class="edit-div">
-                      <button class="edit-btn change">Change Status</button>
-                      <button class="edit-btn delete">Delete</button>
-                    </div>
+  card.innerHTML = `
+    <h2>${book.title}</h2>
+    <span class="author">${book.author}</span>
+    <span class="pages">${book.pages} pages</span>
+    <span class="status"></span>
+    <div class="edit-div">
+      <button class="edit-btn change">Change Status</button>
+      <button class="edit-btn delete">Delete</button>
+    </div>
   `;
-  }else {
-    card.classList.add("no");
-    card.innerHTML = `
-                    <h2>${book.title}</h2>
-                    <span class="author">${book.author}</span>
-                    <span class="pages">${book.pages} pages</span>
-                    <div class="edit-div">
-                      <button class="edit-btn change">Change Status</button>
-                      <button class="edit-btn delete">Delete</button>
-                    </div>
-  `;
-  }
+  setText(card, book);
   
   parentDiv.appendChild(card);
 
@@ -108,9 +83,18 @@ function createCard(book){
   const deleteBtn = card.querySelector(".delete");
 
   changeBtn.addEventListener("click", ()=> {
-    changeStatus(card, book);
+    book.toggleStatus();
+    setText(card, book);
   });
   deleteBtn.addEventListener("click", () => {
+    const bookId = card.dataset.id;
+
+    const index = library.findIndex(book => book.id === bookId);
+
+    if (index !== -1){
+      library.splice(index, 1);
+    }
+    
     card.remove();
   });
 }
